@@ -29,7 +29,7 @@ export const Show = () => {
   const deleteHeroe = async (id)=> {
     const heroeDoc = doc(db, 'heroes', id)
     await deleteDoc(heroeDoc)
-    // getHeroes()
+    getHeroes()
   }
 
   //5. funcion para la confirmacion de sweet alert
@@ -62,6 +62,38 @@ export const Show = () => {
   //7. devolver la vista de nuestra componente
   return(
     <>
+      <div className="container">
+        <div className="row">
+          <div className="col">
+            <div className="d-grid">
+              <Link to='/create' className='btn btn-secondary mt-2 mb-2'>CREAR</Link>
+            </div>
+            <table className='table table-dark table-hover'>
+              <thead>
+                <tr>
+                  <td>Nombre</td>
+                  <td>Nombre real</td>
+                  <td>Edad</td>
+                  <td>Acciones</td>
+                </tr>
+              </thead>
+              <tbody>
+                {heroes.map((heroe) => (
+                  <tr>
+                    <td>{heroe.name}</td>
+                    <td>{heroe.realName}</td>
+                    <td>{heroe.age}</td>
+                    <td>
+                      <Link to={`edit/${heroe.id}`}  className='btn btn-light'><i className='fa fa-pencil'></i> </Link>
+                      <button className='btn btn-danger mx-2' onClick={() => confirmDelete(heroe.id)}><i className='fa fa-trash'></i> </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </>
   )
 }

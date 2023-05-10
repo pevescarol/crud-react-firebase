@@ -1,11 +1,12 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Show } from './components/Show.jsx'
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path='/' element='componente Show' />
+          <Route path='/' element={<Show />}/>
           <Route path='/create' element='Create' />
           <Route path='/edit/:id' element='Edit' />
         </Routes>
