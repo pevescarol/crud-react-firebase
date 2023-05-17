@@ -1,5 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
 import { Show } from './components/Show.jsx'
+import { Edit } from './components/Edit.jsx'
 
 function App() {
   return (
@@ -8,7 +10,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Show />}/>
           <Route path='/create' element='Create' />
-          <Route path='/edit/:id' element='Edit' />
+          <Route path='/edit/:id' element={<Edit />} />
         </Routes>
       </BrowserRouter>
     </div>
